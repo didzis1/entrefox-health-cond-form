@@ -14,7 +14,7 @@ This project is reusing the theme, components and majority of code from previous
 
 ## Getting Started
 
-To clone the project: `git clone https://github.com/didzis1/entrefox-time-mngmt-form.git`
+To clone the project: `git clone https://github.com/didzis1/entrefox-health-cond-form.git`
 
 Install necessary dependencies with: `npm install`
 
