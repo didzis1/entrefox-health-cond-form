@@ -7,13 +7,11 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 
 const Question = ({ questions }) => {
-	console.log(questions)
-
 	return (
 		<>
 			{questions.map((question) => {
 				return (
-					<Box key={question.id} mt={5}>
+					<Box key={question.id} mt={3}>
 						<Typography variant='h5'>{question.title}</Typography>
 						{question.description && (
 							<Box fontStyle='italic' mt={2}>
@@ -32,7 +30,7 @@ const Question = ({ questions }) => {
 }
 
 Question.propTypes = {
-	questions: PropTypes.object
+	questions: PropTypes.array
 }
 
 export default Question

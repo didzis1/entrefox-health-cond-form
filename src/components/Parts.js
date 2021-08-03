@@ -5,27 +5,37 @@ import Questions from './Questions'
 
 // Material UI
 import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography'
 
 const Parts = ({ questionSets, currentPage }) => {
-	const questionsPerPage = questionSets.map((questionSet) =>
-		console.log(questionSet)
-	)
-
-	console.log(questionsPerPage)
-
 	// Render questions from questionsInPage with fetchedQuestions question ID's
 	return (
 		<Box>
-			{questionSets.map((part) => (
-				<Box
-					key={part.id}
-					id={part.id}
-					style={{
-						display: currentPage === part.id ? '' : 'none'
-					}}>
-					<Questions questions={part.questions} />
-				</Box>
-			))}
+			{questionSets.map((part) => {
+				if (part.id === currentPage) {
+					return (
+						<Box
+							key={part.id}
+							id={part.id}
+							style={{
+								display: currentPage === part.id ? '' : 'none'
+							}}>
+							<Typography variant='h5' color='primary'>
+								{part.heading}
+							</Typography>
+							{part.subHeading && (
+								<Box fontStyle='italic' mt={1}>
+									<Typography variant='body1'>
+										{part.subHeading}
+									</Typography>
+								</Box>
+							)}
+							<Questions questions={part.questions} />
+						</Box>
+					)
+				}
+				return null
+			})}
 		</Box>
 	)
 }
