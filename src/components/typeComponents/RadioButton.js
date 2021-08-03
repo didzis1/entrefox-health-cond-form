@@ -16,25 +16,14 @@ const RadioButton = ({ question }) => {
 		return null
 	}
 
-	const handleRadioChange = (event) => {
-		let newValue = {
-			text: event.target.value
-		}
-		const conditionField = question.choices.find(
-			(field) => field.id === parseInt(event.target.name)
-		).condition
-		if (conditionField) {
-			newValue['condition'] = conditionField
-		}
-		handleInputChange(question.id, newValue)
-	}
-
 	return (
 		<Box mt={2}>
 			<RadioGroup
-				value={answer.value?.text ?? null}
+				value={answer.value ?? null}
 				name={question.id.toString()}
-				onChange={(event) => handleRadioChange(event)}>
+				onChange={(event) =>
+					handleInputChange(question.id, event.target.value)
+				}>
 				{question.choices.map((choice) => (
 					<Box key={choice.id}>
 						<FormControlLabel
