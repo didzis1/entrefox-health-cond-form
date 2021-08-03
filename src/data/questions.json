@@ -1,0 +1,245 @@
+[
+	{
+		"id": 1,
+		"heading": "Askel 1: Arvioi liikkumisen nykytilasi",
+		"questions": [
+			{
+				"title": "Lihaskunto ja liikkeenhallinta",
+				"description": "",
+				"choices": [
+					{
+						"text": "0 krt/vko",
+						"id": 1
+					},
+					{
+						"text": "1 krt/vko",
+						"id": 2
+					},
+					{
+						"text": "2 krt/vko",
+						"id": 3
+					},
+					{
+						"text": "3-4 krt/vko",
+						"id": 4
+					},
+					{
+						"text": "5-6 krt/vko",
+						"id": 5
+					},
+					{
+						"text": "7(+) krt/vko",
+						"id": 6
+					}
+				],
+				"type": "radio",
+				"id": 1
+			},
+			{
+				"title": "Rasittava liikkuminen",
+				"description": "",
+				"choices": [
+					{
+						"text": "0-30 min/vko",
+						"id": 1
+					},
+					{
+						"text": "31-60 min/vko",
+						"id": 2
+					},
+					{
+						"text": "61-90 min/vko",
+						"id": 3
+					},
+					{
+						"text": "91-120 min/vko",
+						"id": 4
+					},
+					{
+						"text": "120+ min/vko",
+						"id": 5
+					}
+				],
+				"type": "radio",
+				"id": 2
+			},
+			{
+				"title": "Reipas liikkuminen",
+				"description": "",
+				"choices": [
+					{
+						"text": "0-30 min/vko",
+						"id": 1
+					},
+					{
+						"text": "31-60 min/vko",
+						"id": 2
+					},
+					{
+						"text": "61-90 min/vko",
+						"id": 3
+					},
+					{
+						"text": "91-120 min/vko",
+						"id": 4
+					},
+					{
+						"text": "120-150 min/vko",
+						"id": 5
+					},
+					{
+						"text": "150+ min/vko",
+						"id": 6
+					}
+				],
+				"type": "radio",
+				"id": 3
+			},
+			{
+				"title": "Kevyttä liikuskelua",
+				"description": "",
+				"choices": [
+					{
+						"text": "Ei juurikaan",
+						"id": 1
+					},
+					{
+						"text": "Kerran viikossa",
+						"id": 2
+					},
+					{
+						"text": "2-3 kertaa viikossa",
+						"id": 3
+					},
+					{
+						"text": "4-5 kertaa viikossa",
+						"id": 4
+					},
+					{
+						"text": "Joka päivä tai lähes joka päivä",
+						"id": 5
+					}
+				],
+				"type": "radio",
+				"id": 4
+			},
+			{
+				"title": "Taukoja paikallaanoloon",
+				"description": "",
+				"choices": [
+					{
+						"text": "Ei juurikaan",
+						"id": 1
+					},
+					{
+						"text": "Kerran viikossa",
+						"id": 2
+					},
+					{
+						"text": "2-3 kertaa viikossa",
+						"id": 3
+					},
+					{
+						"text": "4-5 kertaa viikossa",
+						"id": 4
+					},
+					{
+						"text": "Joka päivä tai lähes joka päivä",
+						"id": 5
+					}
+				],
+				"type": "radio",
+				"id": 5
+			}
+		]
+	},
+	{
+		"id": 2,
+		"heading": "Askel 2: Kartoita keinot",
+		"subHeading": "Vinkkejä erilaisiin tapoihin harrastaa liikuntaa, tehdä lihaskunto- tai liikkuvuusharjoitteita kotioloissa, tauottaa paikallaoloa tai lisätä arkiliikkumista on lukuisia. Mieti, mitkä olisivat mieluisimmat lajit ja tavat sinulle.",
+		"questions": [
+			{
+				"title": "Lihaskunto ja liikkeenhallinta",
+				"description": "",
+				"type": "text",
+				"id": 6
+			},
+			{
+				"title": "Rasittava liikkuminen",
+				"description": "",
+				"type": "text",
+				"id": 7
+			},
+			{
+				"title": "Reipas liikkuminen",
+				"description": "",
+				"type": "text",
+				"id": 8
+			},
+			{
+				"title": "Kevyttä liikuskelua",
+				"description": "",
+				"type": "text",
+				"id": 9
+			},
+			{
+				"title": "Tauot paikallaanoloon",
+				"description": "",
+				"type": "text",
+				"id": 10
+			}
+		]
+	},
+	{
+	"id": 3,
+	"heading": "Askel 3. Aseta tavoitteet",
+	"subHeading": "Valitse osa-alueet liikkumisessasi, jotka kaipaavat erityisesti kehittämistä ja aseta niille tavoitteet.",
+	"questions": [
+		{
+			"title": "Mitkä osa-alueet liikkumisessasi kaipaisivat erityisesti kehittämistä? Voit valita yhden tai useampia.",
+			"description": "",
+			"choices": [
+				{
+					"text": "Lihaskunto ja liikkeenhallinta",
+					"id": 1
+				},
+				{
+					"text": "Rasittava liikkuminen",
+					"id": 2
+				},
+				{
+					"text": "Reipas liikkuminen",
+					"id": 3
+				},
+				{
+					"text": "Kevyt liikkuminen",
+					"id": 4
+				},
+				{
+					"text": "Tauot paikallaanoloon",
+					"id": 5
+				}
+			],
+			"type": "checkbox",
+			"id": 11
+		},
+		{
+			"title": "Aseta itsellesi selkeät, konkreettiset tavoitteet.",
+			"description": "Esimerkiksi: ”Harrastan reipasta liikuntaa kolme kertaa viikossa 40 minuuttia kerrallaan”, ”Teen lihaskuntoharjoituksen kaksi kertaa viikossa”, ”Pyöräilen töihin vähintään kolme kertaa viikossa”, ”En käytä enää hissiä”.",
+			"type": "text",
+			"id": 12
+		}
+		]
+	},
+	{
+		"id": 4,
+		"questions": [
+			{
+				"title": "Tuo asettamasi tavoitteet osaksi omaa arkeasi ja varaa niille aikaa. ",
+				"description": "Esimerkiksi: ”Harrastan reipasta liikuntaa kolme kertaa viikossa 40 minuuttia kerrallaan”-> Sovin naapurini kanssa sauvakävelylenkin maanantaille ja torstaille kello 17.30, käyn uimassa sunnuntaina. ”Teen lihaskuntoharjoituksen kaksi kertaa viikossa” -> teen harjoituksen tiistaina ja lauantaina, kun katson uutiset",
+				"type": "text",
+				"id": 12
+			}
+		]
+	}
+]
