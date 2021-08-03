@@ -12,7 +12,7 @@ import Box from '@material-ui/core/Box'
 const CheckBox = ({ question }) => {
 	const { currentPage, handleInputChange, formData } = useForm()
 	const currentValues = getAnswerByID(currentPage, question.id, formData)
-
+	console.log(currentValues)
 	const handleCheckBox = (event, id) => {
 		const checkedBox = {
 			id,
@@ -20,7 +20,11 @@ const CheckBox = ({ question }) => {
 			isChecked: event.target.checked
 		}
 
-		handleInputChange(question.id, checkedBox)
+		const updatedValues = currentValues.value.map((value) =>
+			value.id === checkedBox.id ? checkedBox : value
+		)
+
+		handleInputChange(question.id, updatedValues)
 	}
 
 	return (
@@ -35,9 +39,9 @@ const CheckBox = ({ question }) => {
 									handleCheckBox(event, choice.id)
 								}
 								checked={
-									currentValues?.value.find(
-										(answer) => answer.id === choice.id
-									).isChecked || false
+									currentValues.value.find(
+										(checkbox) => checkbox.id === choice.id
+									).isChecked ?? false
 								}
 								name={choice.text}
 								inputProps={{ 'aria-label': choice.text }}
