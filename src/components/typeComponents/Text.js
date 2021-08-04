@@ -9,15 +9,16 @@ import Box from '@material-ui/core/Box'
 
 // eslint-disable-next-line no-unused-vars
 const Text = ({ question }) => {
-	const { handleInputChange } = useForm()
+	const { handleInputChange, currentPage, formData } = useForm()
+	const currentValue = getAnswerByID(currentPage, question.id, formData).value
 
 	return (
 		<Box key={question.ID} my={2}>
 			<TextField
 				name={question.ID && question.ID.toString()}
-				value={getAnswerByID(question.page, question.ID)}
+				value={currentValue}
 				onChange={(event) =>
-					handleInputChange(event.target.name, event.target.value)
+					handleInputChange(question.id, event.target.value)
 				}
 				rows='4'
 				variant='outlined'
