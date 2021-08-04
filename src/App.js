@@ -27,11 +27,11 @@ const App = () => {
 	}, [currentPage])
 
 	const handleNextPage = () => {
-		setCurrentPage(currentPage + 1)
+		setCurrentPage((currentPage) => currentPage + 1)
 	}
 
 	const handlePreviousPage = () => {
-		setCurrentPage(currentPage - 1)
+		setCurrentPage((currentPage) => currentPage - 1)
 	}
 
 	const handleFormSubmit = (event) => {
