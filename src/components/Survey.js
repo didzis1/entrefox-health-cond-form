@@ -17,8 +17,7 @@ const Survey = ({
 	handleFormSubmit,
 	questionSets,
 	currentPage,
-	handleNextPage,
-	handlePreviousPage,
+	setCurrentPage,
 	formData
 }) => {
 	const classes = useStyles()
@@ -33,7 +32,9 @@ const Survey = ({
 				<ButtonHandler
 					text='Edellinen'
 					colors={{ bg: '#cddc39', bgHover: '#c0ca33' }}
-					handlePagination={() => handlePreviousPage()}
+					handlePagination={setCurrentPage(
+						(currentPage) => currentPage - 1
+					)}
 				/>
 			)
 		}
@@ -55,7 +56,9 @@ const Survey = ({
 			<ButtonHandler
 				text='Seuraava'
 				colors={{ bg: '#cddc39', bgHover: '#c0ca33' }}
-				handlePagination={() => handleNextPage()}
+				handlePagination={setCurrentPage(
+					(currentPage) => currentPage + 1
+				)}
 				questionSets={questionSets}
 			/>
 		)
@@ -111,7 +114,8 @@ Survey.propTypes = {
 	handlePreviousPage: PropTypes.func,
 	questionSets: PropTypes.array,
 	currentPage: PropTypes.number,
-	formData: PropTypes.array
+	formData: PropTypes.array,
+	setCurrentPage: PropTypes.func
 }
 
 export default Survey
