@@ -28,8 +28,8 @@ const BorderLinearProgress = withStyles(() => ({
 const ProgressBar = () => {
 	const styles = useStyles()
 	const { currentPage } = useForm()
-	// Four pages -> 1 page = 25%
-	const progress = currentPage * 25
+	// FIve pages -> 1 page = 20%
+	const progress = currentPage * 20
 
 	return (
 		<Box display='flex' mt={2} alignItems='center'>
