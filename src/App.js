@@ -26,6 +26,14 @@ const App = () => {
 		scrollToTop(true)
 	}, [currentPage])
 
+	const handleNextPage = () => {
+		setCurrentPage((currentPage) => currentPage + 1)
+	}
+
+	const handlePreviousPage = () => {
+		setCurrentPage((currentPage) => currentPage - 1)
+	}
+
 	const handleFormSubmit = (event) => {
 		event.preventDefault()
 		setFormSubmitted(!formSubmitted)
@@ -40,7 +48,8 @@ const App = () => {
 				) : (
 					<Survey
 						handleFormSubmit={handleFormSubmit}
-						setCurrentPage={setCurrentPage}
+						handleNextPage={handleNextPage}
+						handlePreviousPage={handlePreviousPage}
 						questionSets={questionSets}
 						currentPage={currentPage}
 						formSubmitted={formSubmitted}
