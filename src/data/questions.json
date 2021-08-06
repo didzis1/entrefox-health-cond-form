@@ -222,28 +222,11 @@
 			],
 			"type": "checkbox",
 			"id": 11
-		},
-		{
-			"title": "Aseta itsellesi selkeät, konkreettiset tavoitteet.",
-			"description": "Esimerkiksi: ”Harrastan reipasta liikuntaa kolme kertaa viikossa 40 minuuttia kerrallaan”, ”Teen lihaskuntoharjoituksen kaksi kertaa viikossa”, ”Pyöräilen töihin vähintään kolme kertaa viikossa”, ”En käytä enää hissiä”.",
-			"type": "text",
-			"id": 12
 		}
 		]
 	},
 	{
 		"id": 4,
-		"questions": [
-			{
-				"title": "Tuo asettamasi tavoitteet osaksi omaa arkeasi ja varaa niille aikaa. ",
-				"description": "Esimerkiksi: ”Harrastan reipasta liikuntaa kolme kertaa viikossa 40 minuuttia kerrallaan”-> Sovin naapurini kanssa sauvakävelylenkin maanantaille ja torstaille kello 17.30, käyn uimassa sunnuntaina. ”Teen lihaskuntoharjoituksen kaksi kertaa viikossa” -> teen harjoituksen tiistaina ja lauantaina, kun katson uutiset",
-				"type": "text",
-				"id": 12
-			}
-		]
-	},
-	{
-		"id": 5,
 		"heading": "Aseta itsellesi selkeät, konkreettiset tavoitteet.",
 		"subHeading": "",
 		"questions": [
