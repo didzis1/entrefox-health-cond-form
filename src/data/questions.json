@@ -241,5 +241,194 @@
 				"id": 12
 			}
 		]
+	},
+	{
+		"id": 5,
+		"heading": "Aseta itsellesi selkeät, konkreettiset tavoitteet.",
+		"subHeading": "",
+		"questions": [
+			{
+				"title": "Miten aiot tulevaisuudessa parantaa lihaskuntosi?",
+				"description": "Joku esimerkki tähän...",
+				"choices": [
+					{
+						"text": "0 krt/vko",
+						"id": 1
+					},
+					{
+						"text": "1 krt/vko",
+						"id": 2
+					},
+					{
+						"text": "2 krt/vko",
+						"id": 3
+					},
+					{
+						"text": "3-4 krt/vko",
+						"id": 4
+					},
+					{
+						"text": "5-6 krt/vko",
+						"id": 5
+					},
+					{
+						"text": "7(+) krt/vko",
+						"id": 6
+					}
+				],
+				"type": "radio",
+				"id": 13
+			},
+			{
+				"title": "Miten aiot saavuttaa lihaskunnon tavoitteen?",
+				"description": "Joku esimerkki tähän...",
+				"type": "text",
+				"id": 14
+			},
+			{
+				"title": "Miten aiot tulevaisuudessa parantaa rasittavaa liikkumistasi?",
+				"description": "Joku esimerkki tähän...",
+				"choices": [
+					{
+						"text": "0-30 min/vko",
+						"id": 1
+					},
+					{
+						"text": "31-60 min/vko",
+						"id": 2
+					},
+					{
+						"text": "61-90 min/vko",
+						"id": 3
+					},
+					{
+						"text": "91-120 min/vko",
+						"id": 4
+					},
+					{
+						"text": "120+ min/vko",
+						"id": 5
+					}
+				],
+				"type": "radio",
+				"id": 15
+			},
+			{
+				"title": "Miten aiot saavuttaa rasittavan liikkumisen tavoitteen?",
+				"description": "Joku esimerkki tähän...",
+				"type": "text",
+				"id": 16
+			},
+			{
+				"title": "Miten aiot tulevaisuudessa parantaa reippaan liikkumisesi?",
+				"description": "Joku esimerkki tähän...",
+				"choices": [
+					{
+						"text": "0-30 min/vko",
+						"id": 1
+					},
+					{
+						"text": "31-60 min/vko",
+						"id": 2
+					},
+					{
+						"text": "61-90 min/vko",
+						"id": 3
+					},
+					{
+						"text": "91-120 min/vko",
+						"id": 4
+					},
+					{
+						"text": "120-150 min/vko",
+						"id": 5
+					},
+					{
+						"text": "150+ min/vko",
+						"id": 6
+					}
+				],
+				"type": "radio",
+				"id": 17
+			},
+			{
+				"title": "Miten aiot saavuttaa reippaan liikkumisen tavoitteen?",
+				"description": "Joku esimerkki tähän...",
+				"type": "text",
+				"id": 18
+			},
+			{
+				"title": "Miten aiot tulevaisuudessa parantaa kevyttä liikkumisesi?",
+				"description": "Joku esimerkki tähän...",
+				"choices": [
+					{
+						"text": "Ei juurikaan",
+						"id": 1
+					},
+					{
+						"text": "Kerran viikossa",
+						"id": 2
+					},
+					{
+						"text": "2-3 kertaa viikossa",
+						"id": 3
+					},
+					{
+						"text": "4-5 kertaa viikossa",
+						"id": 4
+					},
+					{
+						"text": "Joka päivä tai lähes joka päivä",
+						"id": 5
+					}
+				],
+				"type": "radio",
+				"id": 19
+			},
+			{
+				"title": "Miten aiot saavuttaa lihaskunnon tavoitteen?",
+				"description": "Joku esimerkki tähän...",
+				"type": "text",
+				"id": 20
+			},
+			{
+				"title": "Miten aiot tulevaisuudessa pitää taukojasi?",
+				"description": "Joku esimerkki tähän...",
+				"choices": [
+					{
+						"text": "0 krt/vko",
+						"id": 1
+					},
+					{
+						"text": "1 krt/vko",
+						"id": 2
+					},
+					{
+						"text": "2 krt/vko",
+						"id": 3
+					},
+					{
+						"text": "3-4 krt/vko",
+						"id": 4
+					},
+					{
+						"text": "5-6 krt/vko",
+						"id": 5
+					},
+					{
+						"text": "7(+) krt/vko",
+						"id": 6
+					}
+				],
+				"type": "radio",
+				"id": 21
+			},
+			{
+				"title": "Miten aiot saavuttaa taukojen tavoitteen?",
+				"description": "Joku esimerkki tähän...",
+				"type": "text",
+				"id": 22
+			}
+		]
 	}
 ]
