@@ -12,7 +12,6 @@ import Box from '@material-ui/core/Box'
 const CheckBox = ({ question }) => {
 	const { currentPage, handleInputChange, formData } = useForm()
 	const currentValues = getAnswerByID(currentPage, question.id, formData)
-	console.log(currentValues)
 	const handleCheckBox = (event, id) => {
 		const checkedBox = {
 			id,
