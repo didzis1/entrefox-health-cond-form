@@ -1,5 +1,5 @@
 import React from 'react'
-
+import questionSets from './data/questions.json'
 import RadioButton from './components/typeComponents/RadioButton'
 import Text from './components/typeComponents/Text'
 import CheckBox from './components/typeComponents/CheckBox'
@@ -14,7 +14,33 @@ export const getAnswerByID = (questionPage, questionID, formData) => {
 // If validatedButton returns true, 'Seuraava' or 'Olen valmis' button is disabled
 // eslint-disable-next-line no-unused-vars
 export const validatedButton = (currentPage, formData) => {
-	return false
+	let answeredQuestions = 0
+	let questionAmount = questionSets.find((page) => page.id === currentPage)
+		?.questions.length
+
+	if (currentPage === 4) {
+		// questionAmount is the amount that is generated depending on question 11 answer
+		questionAmount = pageFourOutcomes(formData).length
+	}
+
+	// Loop over each answer in the page and count the answered questions
+	formData
+		?.find((answersPage) => answersPage.page === currentPage)
+		?.answers.forEach((answer) => {
+			if (answer.type === 'checkbox') {
+				const isCheckedAmount = answer.value.filter(
+					(checkbox) => checkbox.isChecked
+				).length
+				isCheckedAmount === 0 ? null : answeredQuestions++
+			} else {
+				if (answer.value) {
+					return answeredQuestions++
+				}
+			}
+		})
+	console.log(questionAmount, answeredQuestions)
+	// If answers are equal to or bigger than questions take off disabled button
+	return !(questionAmount <= answeredQuestions)
 }
 
 export const typeComponent = (question) => {
@@ -43,4 +69,31 @@ export const scrollToTop = (isSmooth) => {
 		left: 0,
 		behavior: isSmooth ? 'smooth' : 'auto'
 	})
+}
+
+export const pageFourOutcomes = (formData) => {
+	let questionsToRender = []
+	// Get all checked answers for the question 11
+	const answers = getAnswerByID(3, 11, formData).value.filter(
+		(answer) => answer.isChecked
+	)
+
+	// Push all the id's of the questions that need to be rendered to questionsToRender array
+	answers.map((answer) => {
+		let arrayOfIds = []
+		if (answer.id === 1) {
+			arrayOfIds = [13, 14]
+		} else if (answer.id === 2) {
+			arrayOfIds = [15, 16]
+		} else if (answer.id === 3) {
+			arrayOfIds = [17, 18]
+		} else if (answer.id === 4) {
+			arrayOfIds = [19, 20]
+		} else if (answer.id === 5) {
+			arrayOfIds = [21, 22]
+		}
+		arrayOfIds.forEach((id) => questionsToRender.push(id))
+	})
+
+	return questionsToRender
 }
