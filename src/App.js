@@ -5,6 +5,7 @@ import { scrollToTop } from './utils'
 
 // Components
 import Survey from './components/Survey'
+import Summary from './components/Summary'
 import Footer from './components/Footer'
 
 // Material UI
@@ -44,7 +45,7 @@ const App = () => {
 		<Box className={classes.mainBackground}>
 			<Box pt={5}>
 				{formSubmitted ? (
-					'Summary displayed...'
+					<Summary handleFormSubmit={handleFormSubmit} />
 				) : (
 					<Survey
 						handleFormSubmit={handleFormSubmit}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { dateToYMD, scrollToTop } from '../utils'
 
 // Summary components
-import SummaryContent from './summaryComponents/SummaryContent'
 import ButtonHandler from './ButtonHandler'
 
 // Material UI
@@ -162,9 +161,7 @@ const Summary = ({ handleFormSubmit }) => {
 				{/* Manual page-break for the PDF generation */}
 				<Box className='html2pdf__page-break'></Box>
 
-				<Box mt={4}>
-					<SummaryContent />
-				</Box>
+				<Box mt={4}></Box>
 			</Box>
 			{/* PDF ends here */}
 
