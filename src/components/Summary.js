@@ -33,38 +33,7 @@ const Summary = ({ handleFormSubmit }) => {
 		await scrollToTop(false)
 
 		// Select and clone elements that are to be edited for the PDF
-		let pieCharts = document.querySelectorAll('#pie-chart')
-		const pieContainer = document.querySelectorAll('#pie-container')
 		const pdfPages = document.querySelectorAll('.pdf_page')
-
-		// Create an empty array for images
-		let pieImages = []
-
-		// For each rendered pieChart, create a new image element and push it to pieImages array
-		pieCharts.forEach(() => {
-			pieImages.push(new Image())
-		})
-
-		// For each image, add various of styles, an id and an src for the image taken from the canvas pie chart
-		pieImages.forEach((pieImage, index) => {
-			pieImage.id = 'pie-rendered-image'
-			pieImage.src = pieCharts[index].toDataURL()
-			pieImage.style.width = '300px'
-			pieImage.style.height = '300px'
-			pieImage.style.display = 'block'
-			pieImage.style.margin = 'auto'
-		})
-
-		// Add one image per one container (container that holds the PieChart canvas)
-		pieContainer.forEach((container, index) => {
-			container.appendChild(pieImages[index])
-		})
-
-		// Temporarily set PieChart to invisible so that it doesn't take empty space in the PDF
-		// This has to be done since html2pdf does not recognize canvas elements, although renders them as taken up space
-		pieCharts.forEach((pieChart) => {
-			pieChart.style.display = 'none'
-		})
 
 		pdfPages.forEach((pdfPage) => {
 			pdfPage.style.paddingTop = '35px'
@@ -109,16 +78,6 @@ const Summary = ({ handleFormSubmit }) => {
 		element.style.backgroundSize = ''
 		singlePage.forEach((page) => (page.style.margin = 'auto'))
 
-		// Set PieChart back to visible
-		pieCharts.forEach((pieChart) => {
-			pieChart.style.display = ''
-		})
-
-		// Remove previously created images from the HTML
-		pieImages.forEach((pieImage) => {
-			pieImage.parentNode.removeChild(pieImage)
-		})
-
 		pdfPages.forEach((pdfPage) => {
 			pdfPage.style.paddingTop = '0px'
 		})
@@ -152,16 +111,226 @@ const Summary = ({ handleFormSubmit }) => {
 					<Box mt={2} align='center'>
 						<img src={header} className={classes.headingImage} />
 					</Box>
-					<Typography variant='h6' align='center'>
-						Olet käynyt kehityskeskustelun {currentDate}.
-					</Typography>
+					<Box mt={2}>
+						<Typography variant='body1'>
+							Olet arvioinut nykytilaasi liikkumisesta sekä
+							tulevaisuuden suunnittelmiasi{' '}
+							<Box fontWeight={500} component='span'>
+								{currentDate}
+							</Box>
+							. Yhteenvedosta voit tarkastella liikkumisen
+							nykytilaasi, UKK:n suosituksia sekä tulevaisuuden
+							tavoitetilaasi. Lisäksi olemme koonneet vinkkejä ja
+							linkkejä terveyskuntosi ylläpitämiseksi.
+						</Typography>
+					</Box>
 				</Box>
 				<Divider data-html2canvas-ignore='true' />
 
 				{/* Manual page-break for the PDF generation */}
 				<Box className='html2pdf__page-break'></Box>
 
-				<Box mt={4}></Box>
+				{/* Content starts here */}
+				<Box mt={4}>
+					<Box className='pdf_page' my={2}>
+						<Box>
+							<Typography color='primary' variant='h5'>
+								Lihaskunto ja liikkeenhallinta
+							</Typography>
+						</Box>
+						<Box>
+							<Typography>
+								Lihaskuntoa ja liikkeenhallintaa olet kertonut
+								harrastavasi [kohta 1] krt/vko. UKK:n
+								suositusten mukaan lihaskuntoa ja
+								liikkeenhallintaa kannattaa tehdä 2 kertaa
+								viikossa hyvän terveyskunnon ylläpitämiseksi.
+							</Typography>
+						</Box>
+						<Box>
+							-------------------------- GRAPH HERE
+							--------------------------
+						</Box>
+						<Box>
+							<Typography>
+								Lihaskuntoa ja liikkeenhallintaa ylläpidät tällä
+								hetkellä: [kohta 6]
+							</Typography>
+						</Box>
+
+						<Box style={{ backgroundColor: '#FFCCCB' }}>
+							<Typography variant='h3'>
+								OPTIONAL_ANSWERS_BELOW
+							</Typography>
+							<Typography>
+								Olet valinnut teeman myös kehitettäväksi
+								osa-alueeksi liikkumisessasi. Tulevaisuudessa
+								tavoitteenasi on liikkua: [kohta 12 lihaskunto]
+								krt/vko ja tavoitteen saavutat: [kohta 12
+								avokenttä lihaskunto]
+							</Typography>
+						</Box>
+					</Box>
+
+					<Box className='pdf_page' my={2}>
+						<Box>
+							<Typography color='primary' variant='h5'>
+								Rasittava liikkuminen
+							</Typography>
+						</Box>
+						<Box>
+							<Typography>
+								Rasittavaa liikkumista kerroit harrastavasi
+								[kohta 2] min/vko. UKK:n suositusten mukaan
+								rasittavaa liikkumista kannattaa tehdä 1 h 15
+								min viikossa hyvän terveyskunnon
+								ylläpitämiseksi.
+							</Typography>
+						</Box>
+						<Box>
+							-------------------------- GRAPH HERE
+							--------------------------
+						</Box>
+						<Box>
+							<Typography>
+								Rasittavaa liikkumista harrastat tällä hetkellä:
+								[kohta 7]
+							</Typography>
+						</Box>
+
+						<Box style={{ backgroundColor: '#FFCCCB' }}>
+							<Typography variant='h3'>
+								OPTIONAL_ANSWERS_BELOW
+							</Typography>
+							<Typography>
+								Olet valinnut teeman myös kehitettäväksi
+								osa-alueeksi liikkumisessasi. Tulevaisuudessa
+								tavoitteenasi on liikkua: [kohta 12 rasittava
+								liikkuminen] min/vko ja tavoitteen saavutat:
+								[kohta 12 avokenttä rasittava liikkuminen]  
+							</Typography>
+						</Box>
+					</Box>
+
+					<Box className='pdf_page' my={2}>
+						<Box>
+							<Typography color='primary' variant='h5'>
+								Reipas liikkuminen
+							</Typography>
+						</Box>
+						<Box>
+							<Typography>
+								Kevyttä liikkumista kerroit harrastavasi [kohta
+								4] min/vko. UKK:n suositusten mukaan reipasta
+								liikkumista kannattaa tehdä 2 h 30 min viikossa
+								hyvän terveyskunnon ylläpitämiseksi.
+							</Typography>
+						</Box>
+						<Box>
+							-------------------------- GRAPH HERE
+							--------------------------
+						</Box>
+						<Box>
+							<Typography>
+								Reipasta liikkumista harrastat tällä hetkellä:
+								[kohta 8]
+							</Typography>
+						</Box>
+
+						<Box style={{ backgroundColor: '#FFCCCB' }}>
+							<Typography variant='h3'>
+								OPTIONAL_ANSWERS_BELOW
+							</Typography>
+							<Typography>
+								Olet valinnut teeman myös kehitettäväksi
+								osa-alueeksi liikkumisessasi. Tulevaisuudessa
+								tavoitteenasi on liikkua: [kohta 12 reipas
+								liikkuminen] min/vko ja tavoitteen saavutat:
+								[kohta 12 avokenttä reipas liikkuminen]  
+							</Typography>
+						</Box>
+					</Box>
+
+					<Box className='pdf_page' my={2}>
+						<Box>
+							<Typography color='primary' variant='h5'>
+								Kevyttä liikuntaa
+							</Typography>
+						</Box>
+						<Box>
+							<Typography>
+								Kevyttä liikkumista olet kertonut harrastavasi
+								[kohta 4] krt/vko. UKK:n suositusten mukaan
+								lihaskuntoa ja liikkeenhallintaa kannattaa tehdä
+								2 kertaa viikossa hyvän terveyskunnon
+								ylläpitämiseksi.
+							</Typography>
+						</Box>
+						<Box>
+							-------------------------- GRAPH HERE
+							--------------------------
+						</Box>
+						<Box>
+							<Typography>
+								Kevyttä liikuntaa harrastat tällä hetkellä:
+								[kohta 9]
+							</Typography>
+						</Box>
+
+						<Box style={{ backgroundColor: '#FFCCCB' }}>
+							<Typography variant='h3'>
+								OPTIONAL_ANSWERS_BELOW
+							</Typography>
+							<Typography>
+								Olet valinnut teeman myös kehitettäväksi
+								osa-alueeksi liikkumisessasi. Tulevaisuudessa
+								tavoitteenasi on liikkua: [kohta 12 kevyt
+								liikkuminen] krt/vko ja tavoitteen saavutat:
+								[kohta 12 avokenttä kevyt liikkuminen]
+							</Typography>
+						</Box>
+					</Box>
+
+					<Box className='pdf_page' my={2}>
+						<Box>
+							<Typography color='primary' variant='h5'>
+								Taukoja paikallaanoloon
+							</Typography>
+						</Box>
+						<Box>
+							<Typography>
+								Liikunnan ohella tauot paikallaan oloon
+								virkistävät mieltä ja kehoa. Olet kertonut
+								pitäväsi [kohta 5] taukoja viikossa. UKK:n
+								suositusten mukaan taukoja kannattaa pitää
+								paikallaanoloon aina kuin voi.
+							</Typography>
+						</Box>
+						<Box>
+							-------------------------- GRAPH HERE
+							--------------------------
+						</Box>
+						<Box>
+							<Typography>
+								Paikallaolon tasapainoksi taukoja pidät tällä
+								hetkellä: [kohta 10]
+							</Typography>
+						</Box>
+
+						<Box style={{ backgroundColor: '#FFCCCB' }}>
+							<Typography variant='h3'>
+								OPTIONAL_ANSWERS_BELOW
+							</Typography>
+							<Typography>
+								Olet valinnut teeman myös kehitettäväksi
+								osa-alueeksi liikkumisessasi. Tulevaisuudessa
+								tavoitteenasi on liikkua: [kohta 12 tauot
+								paikallaoloon] krt/vko ja tavoitteen saavutat:
+								[kohta 12 avokenttä tauot paikallaoloon]
+							</Typography>
+						</Box>
+					</Box>
+				</Box>
 			</Box>
 			{/* PDF ends here */}
 
