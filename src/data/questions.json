@@ -227,11 +227,11 @@
 	},
 	{
 		"id": 4,
-		"heading": "Aseta itsellesi selkeät, konkreettiset tavoitteet.",
+		"heading": "Askel 4. Aseta itsellesi selkeät, konkreettiset tavoitteet.",
 		"subHeading": "",
 		"questions": [
 			{
-				"title": "Miten aiot tulevaisuudessa parantaa lihaskuntosi?",
+				"title": "Miten aiot tulevaisuudessa parantaa lihaskuntoasi?",
 				"description": "Joku esimerkki tähän...",
 				"choices": [
 					{
@@ -263,7 +263,7 @@
 				"id": 13
 			},
 			{
-				"title": "Miten aiot saavuttaa lihaskunnon tavoitteen?",
+				"title": "Miten aiot saavuttaa tavoitteesi lihaskunnon suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
 				"id": 14
@@ -297,13 +297,13 @@
 				"id": 15
 			},
 			{
-				"title": "Miten aiot saavuttaa rasittavan liikkumisen tavoitteen?",
+				"title": "Miten aiot saavuttaa tavoitteesi rasittavan liikkumisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
 				"id": 16
 			},
 			{
-				"title": "Miten aiot tulevaisuudessa parantaa reippaan liikkumisesi?",
+				"title": "Miten aiot tulevaisuudessa parantaa reippaan liikkumisen?",
 				"description": "Joku esimerkki tähän...",
 				"choices": [
 					{
@@ -335,13 +335,13 @@
 				"id": 17
 			},
 			{
-				"title": "Miten aiot saavuttaa reippaan liikkumisen tavoitteen?",
+				"title": "Miten aiot saavuttaa tavoitteesi reippaan liikkumisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
 				"id": 18
 			},
 			{
-				"title": "Miten aiot tulevaisuudessa parantaa kevyttä liikkumisesi?",
+				"title": "Miten aiot tulevaisuudessa parantaa kevyttä liikkumistasi?",
 				"description": "Joku esimerkki tähän...",
 				"choices": [
 					{
@@ -369,13 +369,13 @@
 				"id": 19
 			},
 			{
-				"title": "Miten aiot saavuttaa lihaskunnon tavoitteen?",
+				"title": "Miten aiot saavuttaa tavoitteesi kevyen liikkumisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
 				"id": 20
 			},
 			{
-				"title": "Miten aiot tulevaisuudessa pitää taukojasi?",
+				"title": "Kuinka usein aiot tulevaisuudessa pitää taukoja?",
 				"description": "Joku esimerkki tähän...",
 				"choices": [
 					{
@@ -407,7 +407,7 @@
 				"id": 21
 			},
 			{
-				"title": "Miten aiot saavuttaa taukojen tavoitteen?",
+				"title": "Miten aiot saavuttaa tavoitteesi taukojen pitämisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
 				"id": 22
