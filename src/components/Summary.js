@@ -1,9 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { dateToYMD, scrollToTop } from '../utils'
+import { dateToYMD, scrollToTop, getAnswerByID } from '../utils'
+import { useForm } from '../contexts/FormContext'
 
 // Summary components
 import ButtonHandler from './ButtonHandler'
+import StickyNote from './summaryComponents/StickyNote'
+import HorizontalBarChart from './summaryComponents/HorizontalBarChart'
+import Scroll from './summaryComponents/Scroll'
 
 // Material UI
 import Box from '@material-ui/core/Box'
@@ -23,6 +27,7 @@ import html2pdf from 'html2pdf.js'
 
 const Summary = ({ handleFormSubmit }) => {
 	const classes = useStyles()
+	const { formData } = useForm()
 
 	//const firstPart = content.find((part) => part.question === 2 && part.condition)
 	// Get todays date
@@ -83,6 +88,32 @@ const Summary = ({ handleFormSubmit }) => {
 		})
 	}
 
+	const answers = {
+		1: getAnswerByID(1, 1, formData).value,
+		2: getAnswerByID(1, 2, formData).value,
+		3: getAnswerByID(1, 3, formData).value,
+		4: getAnswerByID(1, 4, formData).value,
+		5: getAnswerByID(1, 5, formData).value,
+		6: getAnswerByID(2, 6, formData).value,
+		7: getAnswerByID(2, 7, formData).value,
+		8: getAnswerByID(2, 8, formData).value,
+		9: getAnswerByID(2, 9, formData).value,
+		10: getAnswerByID(2, 10, formData).value,
+		11: getAnswerByID(3, 11, formData).value,
+		12: getAnswerByID(4, 12, formData).value ?? null,
+		13: getAnswerByID(4, 13, formData).value ?? null,
+		14: getAnswerByID(4, 14, formData).value ?? null,
+		15: getAnswerByID(4, 15, formData).value ?? null,
+		16: getAnswerByID(4, 16, formData).value ?? null,
+		17: getAnswerByID(4, 17, formData).value ?? null,
+		18: getAnswerByID(4, 18, formData).value ?? null,
+		19: getAnswerByID(4, 19, formData).value ?? null,
+		20: getAnswerByID(4, 20, formData).value ?? null,
+		21: getAnswerByID(4, 21, formData).value ?? null
+	}
+
+	console.log(answers[11])
+
 	return (
 		<Container className={classes.survey} maxWidth='md'>
 			<ButtonHandler
@@ -141,35 +172,33 @@ const Summary = ({ handleFormSubmit }) => {
 						<Box>
 							<Typography>
 								Lihaskuntoa ja liikkeenhallintaa olet kertonut
-								harrastavasi [kohta 1] krt/vko. UKK:n
-								suositusten mukaan lihaskuntoa ja
-								liikkeenhallintaa kannattaa tehdä 2 kertaa
-								viikossa hyvän terveyskunnon ylläpitämiseksi.
+								harrastavasi {answers[1]}. UKK:n suositusten
+								mukaan lihaskuntoa ja liikkeenhallintaa
+								kannattaa tehdä 2 kertaa viikossa hyvän
+								terveyskunnon ylläpitämiseksi.
 							</Typography>
 						</Box>
-						<Box>
-							-------------------------- GRAPH HERE
-							--------------------------
-						</Box>
+						<Box>GRAPH HERE</Box>
 						<Box>
 							<Typography>
 								Lihaskuntoa ja liikkeenhallintaa ylläpidät tällä
-								hetkellä: [kohta 6]
+								hetkellä:
+								<StickyNote answer={answers[6]} />
 							</Typography>
 						</Box>
 
-						<Box style={{ backgroundColor: '#FFCCCB' }}>
-							<Typography variant='h3'>
-								OPTIONAL_ANSWERS_BELOW
-							</Typography>
-							<Typography>
-								Olet valinnut teeman myös kehitettäväksi
-								osa-alueeksi liikkumisessasi. Tulevaisuudessa
-								tavoitteenasi on liikkua: [kohta 12 lihaskunto]
-								krt/vko ja tavoitteen saavutat: [kohta 12
-								avokenttä lihaskunto]
-							</Typography>
-						</Box>
+						{answers[11].find((answer) => answer.id === 1)
+							.isChecked ? (
+							<Box>
+								<Typography>
+									Olet valinnut teeman myös kehitettäväksi
+									osa-alueeksi liikkumisessasi.
+									Tulevaisuudessa tavoitteenasi on liikkua:{' '}
+									{answers[12]} ja tavoitteen saavutat:
+								</Typography>
+								<Scroll answer={answers[13]} />
+							</Box>
+						) : null}
 					</Box>
 
 					<Box className='pdf_page' my={2}>
@@ -180,39 +209,42 @@ const Summary = ({ handleFormSubmit }) => {
 						</Box>
 						<Box>
 							<Typography>
-								Rasittavaa liikkumista kerroit harrastavasi
-								[kohta 2] min/vko. UKK:n suositusten mukaan
+								Rasittavaa liikkumista kerroit harrastavasi{' '}
+								{answers[2]}. UKK:n suositusten mukaan
 								rasittavaa liikkumista kannattaa tehdä 1 h 15
 								min viikossa hyvän terveyskunnon
 								ylläpitämiseksi.
 							</Typography>
 						</Box>
 						<Box>
-							-------------------------- GRAPH HERE
-							--------------------------
+							<HorizontalBarChart
+								title='Rasittava liikkuminen [min/vko]'
+								recommended={75}
+								current={answers[2]}
+							/>
 						</Box>
 						<Box>
 							<Typography>
 								Rasittavaa liikkumista harrastat tällä hetkellä:
-								[kohta 7]
+								<StickyNote answer={answers[7]} />
 							</Typography>
 						</Box>
 
-						<Box style={{ backgroundColor: '#FFCCCB' }}>
-							<Typography variant='h3'>
-								OPTIONAL_ANSWERS_BELOW
-							</Typography>
-							<Typography>
-								Olet valinnut teeman myös kehitettäväksi
-								osa-alueeksi liikkumisessasi. Tulevaisuudessa
-								tavoitteenasi on liikkua: [kohta 12 rasittava
-								liikkuminen] min/vko ja tavoitteen saavutat:
-								[kohta 12 avokenttä rasittava liikkuminen]  
-							</Typography>
-						</Box>
+						{answers[11].find((answer) => answer.id === 2)
+							.isChecked ? (
+							<Box>
+								<Typography>
+									Olet valinnut teeman myös kehitettäväksi
+									osa-alueeksi liikkumisessasi.
+									Tulevaisuudessa tavoitteenasi on liikkua:{' '}
+									{answers[14]} ja tavoitteen saavutat:
+								</Typography>
+								<Scroll answer={answers[15]} />
+							</Box>
+						) : null}
 					</Box>
 
-					<Box className='pdf_page' my={2}>
+					<Box className='pdf_page' my={8}>
 						<Box>
 							<Typography color='primary' variant='h5'>
 								Reipas liikkuminen
@@ -220,8 +252,8 @@ const Summary = ({ handleFormSubmit }) => {
 						</Box>
 						<Box>
 							<Typography>
-								Kevyttä liikkumista kerroit harrastavasi [kohta
-								4] min/vko. UKK:n suositusten mukaan reipasta
+								Kevyttä liikkumista kerroit harrastavasi{' '}
+								{answers[3]}. UKK:n suositusten mukaan reipasta
 								liikkumista kannattaa tehdä 2 h 30 min viikossa
 								hyvän terveyskunnon ylläpitämiseksi.
 							</Typography>
@@ -233,25 +265,25 @@ const Summary = ({ handleFormSubmit }) => {
 						<Box>
 							<Typography>
 								Reipasta liikkumista harrastat tällä hetkellä:
-								[kohta 8]
+								<StickyNote answer={answers[8]} />
 							</Typography>
 						</Box>
 
-						<Box style={{ backgroundColor: '#FFCCCB' }}>
-							<Typography variant='h3'>
-								OPTIONAL_ANSWERS_BELOW
-							</Typography>
-							<Typography>
-								Olet valinnut teeman myös kehitettäväksi
-								osa-alueeksi liikkumisessasi. Tulevaisuudessa
-								tavoitteenasi on liikkua: [kohta 12 reipas
-								liikkuminen] min/vko ja tavoitteen saavutat:
-								[kohta 12 avokenttä reipas liikkuminen]  
-							</Typography>
-						</Box>
+						{answers[11].find((answer) => answer.id === 3)
+							.isChecked ? (
+							<Box>
+								<Typography>
+									Olet valinnut teeman myös kehitettäväksi
+									osa-alueeksi liikkumisessasi.
+									Tulevaisuudessa tavoitteenasi on liikkua:{' '}
+									{answers[16]} ja tavoitteen saavutat:
+								</Typography>
+								<Scroll answer={answers[17]} />
+							</Box>
+						) : null}
 					</Box>
 
-					<Box className='pdf_page' my={2}>
+					<Box className='pdf_page' my={8}>
 						<Box>
 							<Typography color='primary' variant='h5'>
 								Kevyttä liikuntaa
@@ -259,8 +291,8 @@ const Summary = ({ handleFormSubmit }) => {
 						</Box>
 						<Box>
 							<Typography>
-								Kevyttä liikkumista olet kertonut harrastavasi
-								[kohta 4] krt/vko. UKK:n suositusten mukaan
+								Kevyttä liikkumista olet kertonut harrastavasi{' '}
+								{answers[4]}. UKK:n suositusten mukaan
 								lihaskuntoa ja liikkeenhallintaa kannattaa tehdä
 								2 kertaa viikossa hyvän terveyskunnon
 								ylläpitämiseksi.
@@ -273,25 +305,25 @@ const Summary = ({ handleFormSubmit }) => {
 						<Box>
 							<Typography>
 								Kevyttä liikuntaa harrastat tällä hetkellä:
-								[kohta 9]
+								<StickyNote answer={answers[9]} />
 							</Typography>
 						</Box>
 
-						<Box style={{ backgroundColor: '#FFCCCB' }}>
-							<Typography variant='h3'>
-								OPTIONAL_ANSWERS_BELOW
-							</Typography>
-							<Typography>
-								Olet valinnut teeman myös kehitettäväksi
-								osa-alueeksi liikkumisessasi. Tulevaisuudessa
-								tavoitteenasi on liikkua: [kohta 12 kevyt
-								liikkuminen] krt/vko ja tavoitteen saavutat:
-								[kohta 12 avokenttä kevyt liikkuminen]
-							</Typography>
-						</Box>
+						{answers[11].find((answer) => answer.id === 4)
+							.isChecked ? (
+							<Box>
+								<Typography>
+									Olet valinnut teeman myös kehitettäväksi
+									osa-alueeksi liikkumisessasi.
+									Tulevaisuudessa tavoitteenasi on liikkua:{' '}
+									{answers[18]} ja tavoitteen saavutat:
+								</Typography>
+								<Scroll answer={answers[19]} />
+							</Box>
+						) : null}
 					</Box>
 
-					<Box className='pdf_page' my={2}>
+					<Box className='pdf_page' my={8}>
 						<Box>
 							<Typography color='primary' variant='h5'>
 								Taukoja paikallaanoloon
@@ -301,9 +333,9 @@ const Summary = ({ handleFormSubmit }) => {
 							<Typography>
 								Liikunnan ohella tauot paikallaan oloon
 								virkistävät mieltä ja kehoa. Olet kertonut
-								pitäväsi [kohta 5] taukoja viikossa. UKK:n
-								suositusten mukaan taukoja kannattaa pitää
-								paikallaanoloon aina kuin voi.
+								pitäväsi taukoja {answers[5]}. UKK:n suositusten
+								mukaan taukoja kannattaa pitää paikallaanoloon
+								aina kuin voi.
 							</Typography>
 						</Box>
 						<Box>
@@ -313,22 +345,23 @@ const Summary = ({ handleFormSubmit }) => {
 						<Box>
 							<Typography>
 								Paikallaolon tasapainoksi taukoja pidät tällä
-								hetkellä: [kohta 10]
+								hetkellä:
+								<StickyNote answer={answers[10]} />
 							</Typography>
 						</Box>
 
-						<Box style={{ backgroundColor: '#FFCCCB' }}>
-							<Typography variant='h3'>
-								OPTIONAL_ANSWERS_BELOW
-							</Typography>
-							<Typography>
-								Olet valinnut teeman myös kehitettäväksi
-								osa-alueeksi liikkumisessasi. Tulevaisuudessa
-								tavoitteenasi on liikkua: [kohta 12 tauot
-								paikallaoloon] krt/vko ja tavoitteen saavutat:
-								[kohta 12 avokenttä tauot paikallaoloon]
-							</Typography>
-						</Box>
+						{answers[11].find((answer) => answer.id === 5)
+							.isChecked ? (
+							<Box>
+								<Typography>
+									Olet valinnut teeman myös kehitettäväksi
+									osa-alueeksi liikkumisessasi.
+									Tulevaisuudessa tavoitteenasi on liikkua:{' '}
+									{answers[20]} ja tavoitteen saavutat:
+								</Typography>
+								<Scroll answer={answers[21]} />
+							</Box>
+						) : null}
 					</Box>
 				</Box>
 			</Box>
