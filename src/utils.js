@@ -38,7 +38,7 @@ export const validatedButton = (currentPage, formData) => {
 				}
 			}
 		})
-	console.log(questionAmount, answeredQuestions)
+
 	// If answers are equal to or bigger than questions take off disabled button
 	return !(questionAmount <= answeredQuestions)
 }
@@ -82,15 +82,15 @@ export const pageFourOutcomes = (formData) => {
 	answers.map((answer) => {
 		let arrayOfIds = []
 		if (answer.id === 1) {
-			arrayOfIds = [13, 14]
+			arrayOfIds = [12, 13]
 		} else if (answer.id === 2) {
-			arrayOfIds = [15, 16]
+			arrayOfIds = [14, 15]
 		} else if (answer.id === 3) {
-			arrayOfIds = [17, 18]
+			arrayOfIds = [16, 17]
 		} else if (answer.id === 4) {
-			arrayOfIds = [19, 20]
+			arrayOfIds = [18, 19]
 		} else if (answer.id === 5) {
-			arrayOfIds = [21, 22]
+			arrayOfIds = [20, 21]
 		}
 		arrayOfIds.forEach((id) => questionsToRender.push(id))
 	})
