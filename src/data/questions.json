@@ -260,13 +260,13 @@
 					}
 				],
 				"type": "radio",
-				"id": 13
+				"id": 12
 			},
 			{
 				"title": "Miten aiot saavuttaa tavoitteesi lihaskunnon suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
-				"id": 14
+				"id": 13
 			},
 			{
 				"title": "Miten aiot tulevaisuudessa parantaa rasittavaa liikkumistasi?",
@@ -294,13 +294,13 @@
 					}
 				],
 				"type": "radio",
-				"id": 15
+				"id": 14
 			},
 			{
 				"title": "Miten aiot saavuttaa tavoitteesi rasittavan liikkumisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
-				"id": 16
+				"id": 15
 			},
 			{
 				"title": "Miten aiot tulevaisuudessa parantaa reippaan liikkumisen?",
@@ -332,13 +332,13 @@
 					}
 				],
 				"type": "radio",
-				"id": 17
+				"id": 16
 			},
 			{
 				"title": "Miten aiot saavuttaa tavoitteesi reippaan liikkumisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
-				"id": 18
+				"id": 17
 			},
 			{
 				"title": "Miten aiot tulevaisuudessa parantaa kevyttä liikkumistasi?",
@@ -366,13 +366,13 @@
 					}
 				],
 				"type": "radio",
-				"id": 19
+				"id": 18
 			},
 			{
 				"title": "Miten aiot saavuttaa tavoitteesi kevyen liikkumisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
-				"id": 20
+				"id": 19
 			},
 			{
 				"title": "Kuinka usein aiot tulevaisuudessa pitää taukoja?",
@@ -404,13 +404,13 @@
 					}
 				],
 				"type": "radio",
-				"id": 21
+				"id": 20
 			},
 			{
 				"title": "Miten aiot saavuttaa tavoitteesi taukojen pitämisen suhteen?",
 				"description": "Joku esimerkki tähän...",
 				"type": "text",
-				"id": 22
+				"id": 21
 			}
 		]
 	}
