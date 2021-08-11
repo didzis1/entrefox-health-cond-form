@@ -10,7 +10,7 @@ import useStyles from '../../styles'
 const StickyNote = ({ answer }) => {
 	const classes = useStyles()
 	return (
-		<Box>
+		<Box my={4}>
 			<Grid
 				direction='row'
 				container
