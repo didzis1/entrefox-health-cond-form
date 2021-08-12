@@ -179,6 +179,7 @@ const Summary = ({ handleFormSubmit }) => {
 							</Typography>
 						</Box>
 						<Box>GRAPH HERE</Box>
+
 						<Box>
 							<Typography>
 								Lihaskuntoa ja liikkeenhallintaa ylläpidät tällä
@@ -186,7 +187,7 @@ const Summary = ({ handleFormSubmit }) => {
 								<StickyNote answer={answers[6]} />
 							</Typography>
 						</Box>
-
+						<Box className='html2pdf__page-break'></Box>
 						{answers[11].find((answer) => answer.id === 1)
 							.isChecked ? (
 							<Box>
@@ -200,7 +201,7 @@ const Summary = ({ handleFormSubmit }) => {
 							</Box>
 						) : null}
 					</Box>
-
+					<Box className='html2pdf__page-break'></Box>
 					<Box className='pdf_page' my={2}>
 						<Box>
 							<Typography color='primary' variant='h5'>
@@ -229,7 +230,7 @@ const Summary = ({ handleFormSubmit }) => {
 								<StickyNote answer={answers[7]} />
 							</Typography>
 						</Box>
-
+						<Box className='html2pdf__page-break'></Box>
 						{answers[11].find((answer) => answer.id === 2)
 							.isChecked ? (
 							<Box>
@@ -243,7 +244,7 @@ const Summary = ({ handleFormSubmit }) => {
 							</Box>
 						) : null}
 					</Box>
-
+					<Box className='html2pdf__page-break'></Box>
 					<Box className='pdf_page' my={8}>
 						<Box>
 							<Typography color='primary' variant='h5'>
@@ -268,7 +269,7 @@ const Summary = ({ handleFormSubmit }) => {
 								<StickyNote answer={answers[8]} />
 							</Typography>
 						</Box>
-
+						<Box className='html2pdf__page-break'></Box>
 						{answers[11].find((answer) => answer.id === 3)
 							.isChecked ? (
 							<Box>
@@ -282,7 +283,7 @@ const Summary = ({ handleFormSubmit }) => {
 							</Box>
 						) : null}
 					</Box>
-
+					<Box className='html2pdf__page-break'></Box>
 					<Box className='pdf_page' my={8}>
 						<Box>
 							<Typography color='primary' variant='h5'>
@@ -308,7 +309,7 @@ const Summary = ({ handleFormSubmit }) => {
 								<StickyNote answer={answers[9]} />
 							</Typography>
 						</Box>
-
+						<Box className='html2pdf__page-break'></Box>
 						{answers[11].find((answer) => answer.id === 4)
 							.isChecked ? (
 							<Box>
@@ -323,7 +324,7 @@ const Summary = ({ handleFormSubmit }) => {
 						) : null}
 					</Box>
 
-					<Box className='pdf_page' my={8}>
+					<Box className='pdf_page' id='last-pdf-page' my={8}>
 						<Box>
 							<Typography color='primary' variant='h5'>
 								Taukoja paikallaanoloon
@@ -349,6 +350,8 @@ const Summary = ({ handleFormSubmit }) => {
 								<StickyNote answer={answers[10]} />
 							</Typography>
 						</Box>
+
+						<Box className='html2pdf__page-break'></Box>
 
 						{answers[11].find((answer) => answer.id === 5)
 							.isChecked ? (
